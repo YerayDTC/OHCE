@@ -3,14 +3,14 @@ import { stdin as input, stdout as output } from 'node:process';
 
 export class Ohce {
 
-    constructor() {
-        this.logger = new Logger()
+    constructor(logger) {
+        this.logger = logger
     }
 
     async execute(nombre) {
         this.logger.log(`Buenos dias ${nombre}`)
 
-        while (true) {
+        while (false) {
             const answer = await readLine();
             if (answer === "Stop!") {
                 break
@@ -34,7 +34,7 @@ async function readLine() {
     2 separar las responsabilidades, leer cosas en consola  */
 
 
-class Logger {
+export class Logger {
     log(str){
         console.log(str);
     }
