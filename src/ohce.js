@@ -2,8 +2,13 @@ import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 
 export class Ohce {
+
+    constructor() {
+        this.logger = new Logger()
+    }
+
     async execute(nombre) {
-        console.log(`Buenos dias ${nombre}`)
+        this.logger.log(`Buenos dias ${nombre}`)
 
         while (true) {
             const answer = await readLine();
@@ -11,8 +16,8 @@ export class Ohce {
                 break
             }
             let reversed = answer.split("").reverse().join("");
-            console.log(reversed)
-        } 
+            this.logger.log(reversed)
+        }
     }
 
 }
@@ -23,4 +28,14 @@ async function readLine() {
     rl.close();
 
     return answer;
+} 
+
+/*1 sacar a una clase
+    2 separar las responsabilidades, leer cosas en consola  */
+
+
+class Logger {
+    log(str){
+        console.log(str);
+    }
 }
